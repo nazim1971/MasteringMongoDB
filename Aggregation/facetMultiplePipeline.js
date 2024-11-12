@@ -1,29 +1,30 @@
 // $facet, multiple pipeline aggregation stage
 
 db.getCollection("practice-data").aggregate([
+
+    // Stage 1: Facet stage
+    // Multiple independent pipelines run in parallel
     {
         $facet: {
-            //pipeline - 1
+
+            // Pipeline 1: Count the number of friends
             "friendsCount": [
-                //stage - 1
-                { $unwind: "$friends" },
-                //stage -2 
-                { $group: { _id: "$friends", count: { $sum: 1 } } }
+                { $unwind: "$friends" },  // Unwind the 'friends' array
+                { $group: { _id: "$friends", count: { $sum: 1 } } }  // Group by each friend and count occurrences
             ],
-            //pipeline - 2
+
+            // Pipeline 2: Count the number of education records
             "educationCount": [
-                //stage - 1
-                { $unwind: "$education" },
-                //stage - 2
-                { $group: { _id: "$education", count: { $sum: 1 } } }
+                { $unwind: "$education" },  // Unwind the 'education' array
+                { $group: { _id: "$education", count: { $sum: 1 } } }  // Group by each education entry and count occurrences
             ],
-            //pipeline - 3 
+
+            // Pipeline 3: Count the number of skills
             "skillCount": [
-                //stage - 1
-                { $unwind: "$skills" },
-                //stage - 2
-                { $group: { _id: "$skills", count: {$sum: 1  } }}
-                ]
+                { $unwind: "$skills" },  // Unwind the 'skills' array
+                { $group: { _id: "$skills", count: { $sum: 1 } } }  // Group by each skill and count occurrences
+            ]
         }
     }
+
 ])
