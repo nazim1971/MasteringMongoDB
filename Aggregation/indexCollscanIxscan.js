@@ -1,0 +1,1 @@
+// What is indexing, COLLSCAN vs IXSCAN
