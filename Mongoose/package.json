@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "rimraf dist && tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+     "lint": "eslint \"src/**/*.ts\" --no-ignore"
   },
   "keywords": [],
   "author": "",
@@ -18,11 +19,16 @@
     "mongoose": "^8.8.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/cors": "^2.8.17",
+    "@types/eslint__js": "^8.42.3",
     "@types/express": "^5.0.0",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^22.9.0",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
     "rimraf": "^6.0.1",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.14.0"
   }
 }
