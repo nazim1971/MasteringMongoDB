@@ -1,7 +1,8 @@
 import app from "./app";
+import config from "./app/config";
 import connectDB from "./db/db";
 
-const port = process.env.PORT || 5000;
+const port = config.port || 5000;
 
 
 // Define a function to start the server

@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv"
+import config from "../app/config";
 dotenv.config();
 
 
 
-const uri  = process.env.DATABASE_URL;
+const uri  = config.db;
 
 if (!uri) {
     throw new Error("MongoDB URI is not defined in the environment variables");
