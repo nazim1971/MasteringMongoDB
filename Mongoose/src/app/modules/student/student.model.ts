@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose';
+import { model, Schema } from 'mongoose';
 import {
   Guardian,
   LocalGuardian,
@@ -44,4 +44,4 @@ const studentSchema = new Schema<Student>({
   isActive: ['active', 'inActive'],
 });
 
-export default studentSchema;
+ export const StudentModel = model<Student>('Student', studentSchema);
