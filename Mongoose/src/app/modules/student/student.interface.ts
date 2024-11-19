@@ -2,7 +2,7 @@
 
 export type UserName = {
   firstName: string;
-  middleName: string;
+  middleName?: string;
   lastName: string;
 };
 export type Guardian = {
@@ -34,5 +34,5 @@ export type Student = {
   guardian: Guardian;
   localGuardian: LocalGuardian;
   profileImage?: string;
-  isActive: 'active' | 'inActive';
+  isActive: 'active' | 'blocked';
 };
