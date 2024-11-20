@@ -76,7 +76,9 @@ const studentValidationSchema = z.object({
     required_error: 'ID is required',
     invalid_type_error: 'ID must be a string',
   }),
-
+  password: z
+    .string({ required_error: 'Password is required' })
+    .max(20, { message: 'Password cannot be more than 20 characters' }),
   name: userNameValidationSchema,
 
   gender: z.enum(['female', 'male'], {
